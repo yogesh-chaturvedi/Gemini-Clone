@@ -67,7 +67,7 @@ function Sidebar() {
   return (
     <>
 
-      <div className={`sidebarContainer fixed sm:relative z-20 top-0 left-0 h-full bg-gray-900 transition-all duration-300 ease-in-out flex flex-col items-start ${value.extended ? 'w-[200px]' : 'w-0 sm:w-[70px]'}
+      <div className={`sidebarContainer fixed sm:relative z-20 top-0 left-0 h-full bg-gray-900 transition-all duration-300 ease-in-out flex flex-col items-start ${value.extended ? 'w-[210px]' : 'w-0 sm:w-[70px]'}
     overflow-hidden sm:overflow-visible`}
       >
 
@@ -84,14 +84,14 @@ function Sidebar() {
 
         {/* recent */}
         <div className="recent px-1 mt-30 ">
-          <p style={{ display: value.extended ? "" : "none" }} className='font-semibold hover:bg-gray-600 rounded-3xl px-1 w-16 text-lg text-gray-300'>Recent</p>
+          <p style={{ display: value.extended ? "" : "none" }} className='font-semibold hover:bg-gray-950 rounded-3xl pl-3 pr-3 w-19 text-lg text-gray-300'>Recent</p>
           <ul style={{ display: value.extended ? "" : "none", }} className='px-1 py-1 text-lg text-gray-200'>
             {
               value.recent.map((elem, index) => {
-                return <div key={index} className='flex  items-center relative '>
-                  <li className='w-38 px-1 rounded-3xl text-nowrap hover:hover:bg-gray-600' onClick={() => runPreviousFunc(index)}>{elem.slice(0, 18) + "..."}</li>
+                return <div key={index} className='flex w-[170px] items-center relative '>
+                  <li className='w-[100%] px-1 pl-2 rounded-3xl relative text-nowrap hover:bg-gray-950' onClick={() => runPreviousFunc(index)}>{elem.slice(0, 16) + "..."}</li>
                   {/* absolute right-2 */}
-                  <img onClick={() => toggleMenuFunc(index)} src={assets.more_vert_24dp_E3E3E3_FILL0_wght400_GRAD0_opsz24} alt="" />
+                  <img className='absolute right-1' onClick={() => toggleMenuFunc(index)} src={assets.more_vert_24dp_E3E3E3_FILL0_wght400_GRAD0_opsz24} alt="" />
 
                   {/* dropdownMenu  */}
                   {toggleMenu === index && (

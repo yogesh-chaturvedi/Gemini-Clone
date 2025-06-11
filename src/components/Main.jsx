@@ -61,7 +61,7 @@ function Main() {
               <h1 className='text-2xl text-gray-600 font-semibold invert'>Gemini</h1>
             </div>
 
-            <Time />
+            {/* <Time /> */}
             <div className='flex gap-2 items-center'>
               <img className='h-10 w-10 rounded-full' src={assets.user_icon} alt="user icon" />
             </div>
@@ -90,7 +90,7 @@ function Main() {
           </div>
           <div style={{ display: value.show ? "none" : "" }} className="greet">
             {/* <h1 className='font-bold text-teal-700 text-7xl flex justify-center mt-40'>Hello, Users</h1> */}
-            <h1 className="text-5xl sm:text-7xl font-bold bg-gradient-to-r from-teal-400 to-blue-500 bg-clip-text text-transparent flex justify-center mt-40">
+            <h1 className="text-5xl sm:text-7xl font-bold bg-gradient-to-r from-teal-400 to-blue-500 bg-clip-text text-transparent flex justify-center mt-50">
               Hello, Users
             </h1>
           </div>

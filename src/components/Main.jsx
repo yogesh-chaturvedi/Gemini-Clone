@@ -1,4 +1,4 @@
-import React, { useContext, useEffect, useRef, useState } from 'react'
+import React, { useContext, useEffect, useState } from 'react'
 import { assets } from '../assets/assets'
 import { getContext } from '../App'
 import Time from './Time'

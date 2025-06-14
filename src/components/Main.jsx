@@ -90,7 +90,7 @@ function Main() {
           </div>
           <div style={{ display: value.show ? "none" : "" }} className="greet">
             {/* <h1 className='font-bold text-teal-700 text-7xl flex justify-center mt-40'>Hello, Users</h1> */}
-            <h1 className="text-5xl sm:text-7xl font-bold bg-gradient-to-r from-teal-400 to-blue-500 bg-clip-text text-transparent flex justify-center mt-50">
+            <h1 className="text-5xl sm:text-7xl font-bold bg-gradient-to-r from-teal-400 to-blue-500 bg-clip-text text-transparent flex justify-center mt-40">
               Hello, Users
             </h1>
           </div>
@@ -100,15 +100,14 @@ function Main() {
         {/* Text-Field */}
         <div className="searchBar mt-5 absolute bottom-7 border bg-gray-950 border-white px-2 flex items-center rounded-2xl w-[90%] sm:w-[60%]">
 
-          <textarea value={value.questions} onChange={(e) => value.setQuestions(e.target.value)} ref={value.textField} className="h-10 relative  text-lg  invert py-2 px-3 outline-none my-2 w-full resize-none overflow-hidden" rows="3" placeholder="Ask Gemini"></textarea>
+          <textarea value={value.questions} onChange={(e) => value.setQuestions(e.target.value)} ref={value.textField} className="h-10 relative text-lg invert pr-[30px] py-2 px-3 outline-none my-2 w-full resize-none overflow-hidden" rows="3" placeholder="Ask Gemini"></textarea>
 
           {crossicon && (
-            <img onClick={handleCrossIcon} className="w-5 h-5 absolute right-30 bottom-4 cursor-pointer" src={assets.close_24dp_E3E3E3_FILL0_wght400_GRAD0_opsz24} alt="close-img" />
+            <img onClick={handleCrossIcon} className="w-5 h-5 absolute right-20 ml-5 bottom-4 cursor-pointer" src={assets.close_24dp_E3E3E3_FILL0_wght400_GRAD0_opsz24} alt="close-img" />
           )}
 
           <div className="icons gap-4 flex flex-shrink-0 pr-2 invert">
             <img className="w-5 h-5" src={assets.gallery_icon} alt="gallery icon" />
-            <img className="w-5 h-5" src={assets.mic_icon} alt="mic icon" />
             <img onClick={handleSend} className="w-5 h-5" src={assets.send_icon} alt="send icon" />
           </div>
         </div>

@@ -46,6 +46,7 @@ function Main() {
     value.setQuestions("")
   }
 
+  // triggers when someone clicks on enter button
   function handleClick(e) {
     console.log("clicked")
     if (e.key === 'Enter') {
@@ -77,7 +78,7 @@ function Main() {
         </div>
 
         {/* question/ answers box */}
-        <div className={`mainContainer  px-[5%] sm:px-[20%] text-white max-h-[70%] w-[100%] ${value.show ? "overflow-y-auto" : "overflow-hidden"} `}>
+        <div className={`mainContainer scrollbar-hide px-[5%] sm:px-[20%] text-white max-h-[70%] w-[100%] ${value.show ? "overflow-y-auto" : "overflow-hidden"} `}>
           <div style={{ display: value.show ? "" : "none" }} className=' flex flex-col gap-3 p-4'>
             {/* question */}
             <div className='question flex items-center font-bold gap-2 text-xl '>

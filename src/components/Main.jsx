@@ -106,9 +106,9 @@ function Main() {
             <img onClick={handleCrossIcon} className="w-5 h-5 absolute right-20 ml-5 bottom-4 cursor-pointer" src={assets.close_24dp_E3E3E3_FILL0_wght400_GRAD0_opsz24} alt="close-img" />
           )}
 
-          <div className="icons gap-4 flex flex-shrink-0 pr-2 invert">
+          <div className="icons items-center gap-4 flex flex-shrink-0 pr-2 invert">
             <img className="w-5 h-5" src={assets.gallery_icon} alt="gallery icon" />
-            <img onClick={handleSend} className="w-5 h-5" src={assets.send_icon} alt="send icon" />
+            <img onClick={handleSend} tabIndex={0} role='button' className=" w-5 h-5 cursor-pointer" src={assets.send_icon} alt="send icon" />
           </div>
         </div>
 

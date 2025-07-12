@@ -72,12 +72,12 @@ function Sidebar() {
       >
 
         {/* hamburger icon */}
-        <div onClick={hamdleHamburger} className='hamburger invert absolute top-7 left-4'>
-          <img className='w-6 ' src={assets.menu_icon} alt=" menu icon" />
+        <div onClick={hamdleHamburger} className='hamburger invert absolute top-7 left-4 cursor-pointer'>
+          <img className='w-6' src={assets.menu_icon} alt=" menu icon" />
         </div>
 
         {/* new chat icon */}
-        <div onClick={handleNewChat} className="chatIcon w-27 absolute top-18 left-4 flex gap-2 px-1 rounded-3xl filter invert ">
+        <div onClick={handleNewChat} className="chatIcon w-27 absolute top-18 left-4 flex gap-2 px-1 rounded-3xl filter invert cursor-pointer">
           <img className=' w-5 h-6' src={assets.plus_icon} alt="plus icon" />
           <span style={{ display: value.extended ? "" : "none" }} >New Chat</span>
         </div>
@@ -89,9 +89,9 @@ function Sidebar() {
             {
               value.recent.map((elem, index) => {
                 return <div key={index} className='flex w-[170px] items-center relative '>
-                  <li className='w-[100%] px-1 pl-2 rounded-3xl relative text-nowrap hover:bg-gray-950' onClick={() => runPreviousFunc(index)}>{elem.slice(0, 16) + "..."}</li>
+                  <li className='w-[100%] px-1 pl-2 rounded-3xl relative text-nowrap hover:bg-gray-950 cursor-pointer' onClick={() => runPreviousFunc(index)}>{elem.slice(0, 16) + "..."}</li>
                   {/* absolute right-2 */}
-                  <img className='absolute right-1' onClick={() => toggleMenuFunc(index)} src={assets.more_vert_24dp_E3E3E3_FILL0_wght400_GRAD0_opsz24} alt="" />
+                  <img className='absolute right-1 cursor-pointer' onClick={() => toggleMenuFunc(index)} src={assets.more_vert_24dp_E3E3E3_FILL0_wght400_GRAD0_opsz24} alt="" />
 
                   {/* dropdownMenu  */}
                   {toggleMenu === index && (

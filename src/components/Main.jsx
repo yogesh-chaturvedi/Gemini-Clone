@@ -46,6 +46,14 @@ function Main() {
     value.setQuestions("")
   }
 
+  function handleClick(e) {
+    console.log("clicked")
+    if (e.key === 'Enter') {
+      e.preventDefault();
+      handleSend();
+    }
+  }
+
   return (
     <>
       <div className="mainContainer relative w-[100vw] bg-gray-950 flex flex-col items-center gap-10">
@@ -100,7 +108,7 @@ function Main() {
         {/* Text-Field */}
         <div className="searchBar mt-5 absolute bottom-7 border bg-gray-950 border-white px-2 flex items-center rounded-2xl w-[90%] sm:w-[60%]">
 
-          <textarea value={value.questions} onChange={(e) => value.setQuestions(e.target.value)} ref={value.textField} className="h-10 relative text-lg invert pr-[30px] py-2 px-3 outline-none my-2 w-full resize-none overflow-hidden" rows="3" placeholder="Ask Gemini"></textarea>
+          <textarea onKeyDown={handleClick} value={value.questions} onChange={(e) => value.setQuestions(e.target.value)} ref={value.textField} className="h-10 relative text-lg invert pr-[30px] py-2 px-3 outline-none my-2 w-full resize-none overflow-hidden" rows="3" placeholder="Ask Gemini"></textarea>
 
           {crossicon && (
             <img onClick={handleCrossIcon} className="w-5 h-5 absolute right-20 ml-5 bottom-4 cursor-pointer" src={assets.close_24dp_E3E3E3_FILL0_wght400_GRAD0_opsz24} alt="close-img" />

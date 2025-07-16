@@ -54,4 +54,5 @@ npm run dev
 
 ## 🔗 Live Demo
 
-Coming soon...
+🚀 Check out the live Gemini Clone here:  
+👉 [https://gemini-clone-omega-ruddy.vercel.app/](https://gemini-clone-omega-ruddy.vercel.app/)

@@ -6,7 +6,6 @@ import Time from './Time'
 function Main() {
 
   const value = useContext(getContext)
-
   const [crossicon, setCrossicon] = useState(false)
 
   function handleSend() {
@@ -30,7 +29,7 @@ function Main() {
     value.setQuestions("");
   }
 
-
+  // crossIcon to clear text area
   useEffect(() => {
     if (value.questions.trim().length > 0) {
       setCrossicon(true)
@@ -50,7 +49,7 @@ function Main() {
   function handleClick(e) {
     console.log("clicked")
     if (e.key === 'Enter') {
-      e.preventDefault();
+      e.preventDefault();    // its prevent it to enter in next line, when someone click on 'Enter'
       handleSend();
     }
   }
@@ -74,6 +73,7 @@ function Main() {
             <div className='flex gap-2 items-center'>
               <img className='h-10 w-10 rounded-full' src={assets.user_icon} alt="user icon" />
             </div>
+
           </div>
         </div>
 
@@ -87,7 +87,7 @@ function Main() {
             </div>
 
             {/* answers */}
-            <div className='flex gap-2 items-center'>
+            <div className='flex gap-2 items-start'>
               <img className='w-11 h-11' src={assets.gemini_icon} alt="gemini icon" />
               {value.loader ? <div>
                 <div className="w-6 h-6 border-4 border-white border-t-transparent rounded-full animate-spin"></div>
@@ -112,7 +112,7 @@ function Main() {
           <textarea onKeyDown={handleClick} value={value.questions} onChange={(e) => value.setQuestions(e.target.value)} ref={value.textField} className="h-10 relative text-lg invert pr-[30px] py-2 px-3 outline-none my-2 w-full resize-none overflow-hidden" rows="3" placeholder="Ask Gemini"></textarea>
 
           {crossicon && (
-            <img onClick={handleCrossIcon} className="w-5 h-5 absolute right-20 ml-5 bottom-4 cursor-pointer" src={assets.close_24dp_E3E3E3_FILL0_wght400_GRAD0_opsz24} alt="close-img" />
+            <img onClick={handleCrossIcon} className="w-5 h-5 absolute right-20 ml-5 bottom-4 cursor-pointer" src={assets.close_24dp_E3E3E3_FILL0_wght400_GRAD0_opsz24} alt="close-icon" />
           )}
 
           <div className="icons items-center gap-4 flex flex-shrink-0 pr-2 invert">

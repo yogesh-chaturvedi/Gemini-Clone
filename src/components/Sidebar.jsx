@@ -7,12 +7,10 @@ function Sidebar() {
 
   const value = useContext(getContext)
   const [toggleMenu, setToggleMenu] = useState(null)
+  // const [first, setfirst] = useState(second)
 
-  // sidebar state
-
-
-  // hamburger
-  function hamdleHamburger() {
+  // toggle hamburger
+  function handleHamburger() {
     if (value.extended === true) {
       value.setExtended(false)
     }
@@ -28,26 +26,22 @@ function Sidebar() {
     value.textField.current = ""
   }
 
-  // previous question 
+  // this function run previous question
   const runPreviousFunc = (indexToBeCalled) => {
-
-    // value.setQuestions(value.recent[indexToBeCalled])   // Now we dont want value in out textfiled
     value.setAskedQuestion(value.recent[indexToBeCalled])
     value.getUser(value.recent[indexToBeCalled])
     value.setShow(true)
   }
 
-
   // Function to Toggle Menu 
   function toggleMenuFunc(clickedIndex) {
-    console.log(clickedIndex)
+    // console.log(clickedIndex)
     setToggleMenu(prev => prev === clickedIndex ? null : clickedIndex)
-    console.log(toggleMenu)
+    // console.log(toggleMenu)
   }
 
   // functioon to handel delete
   function handleDelete(indexToBeDelete) {
-    console.log("delete")
     setToggleMenu(null)
     const newRecent = value.recent.filter((_, index) => index !== indexToBeDelete)
     value.setRecent(newRecent)
@@ -55,24 +49,20 @@ function Sidebar() {
     value.setShow(false)
   }
 
+  // function to edit questions 
   function handleEdit(indexToEdit) {
-    // console.log("edit")
     setToggleMenu(null)
     let selected = value.recent[indexToEdit]
     value.setQuestions(selected)
     value.setSelectedIndex(indexToEdit)
-    console.log(value.selectedIndex)
   }
 
   return (
     <>
-
-      <div className={`sidebarContainer fixed sm:relative z-20 top-0 left-0 h-full bg-gray-900 transition-all duration-300 ease-in-out flex flex-col items-start ${value.extended ? 'w-[210px]' : 'w-0 sm:w-[70px]'}
-    overflow-hidden sm:overflow-visible`}
-      >
+      <div className={`sidebarContainer fixed sm:relative z-20 top-0 left-0 h-full bg-gray-900 transition-all duration-300 ease-in-out flex flex-col items-start ${value.extended ? 'w-[210px]' : 'w-0 sm:w-[70px]'} overflow-hidden sm:overflow-visible`}>
 
         {/* hamburger icon */}
-        <div onClick={hamdleHamburger} className='hamburger invert absolute top-7 left-4 cursor-pointer'>
+        <div onClick={handleHamburger} className='hamburger invert absolute top-7 left-4 cursor-pointer'>
           <img className='w-6' src={assets.menu_icon} alt=" menu icon" />
         </div>
 
@@ -89,9 +79,9 @@ function Sidebar() {
             {
               value.recent.map((elem, index) => {
                 return <div key={index} className='flex w-[170px] items-center relative '>
-                  <li className='w-[100%] px-1 pl-2 rounded-3xl relative text-nowrap hover:bg-gray-950 cursor-pointer' onClick={() => runPreviousFunc(index)}>{elem.slice(0, 16) + "..."}</li>
+                  <li className='w-[85%] overflow-x-hidden truncate px-1 pl-2 rounded-3xl relative text-nowrap hover:bg-gray-950 cursor-pointer' onClick={() => runPreviousFunc(index)}>{elem}</li>
                   {/* absolute right-2 */}
-                  <img className='absolute right-1 cursor-pointer' onClick={() => toggleMenuFunc(index)} src={assets.more_vert_24dp_E3E3E3_FILL0_wght400_GRAD0_opsz24} alt="" />
+                  <img className='absolute right-1 cursor-pointer rounded-full hover:bg-gray-950' onClick={() => toggleMenuFunc(index)} src={assets.more_vert_24dp_E3E3E3_FILL0_wght400_GRAD0_opsz24} alt="options-icon" />
 
                   {/* dropdownMenu  */}
                   {toggleMenu === index && (
@@ -112,7 +102,6 @@ function Sidebar() {
             <p style={{ display: value.extended ? "" : "none" }}>Settings</p>
           </div>
         </div>
-
       </div >
     </ >
   )
